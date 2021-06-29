@@ -1,14 +1,14 @@
 #include "libft.h"
-#include "array.h"
+#include "stack.h"
 
 int	main(int argc, char **argv)
 {
-	t_array	*a;
-	t_array	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	(void)argv;
-	a = new_array(argc - 1);
-	b = new_array(argc - 1);
+	a = new_stack(argc - 1);
+	b = new_stack(argc - 1);
 	push(a, 0);
 	push(a, 1);
 	push(a, 2);
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 	push(a, 4);
 	swap_a(a);
 	ft_putstr_fd("a: \n", 1);
-	print_array(a);
+	print_stack(a);
 	ft_putstr_fd("b: \n", 1);
-	print_array(b);
+	print_stack(b);
 }

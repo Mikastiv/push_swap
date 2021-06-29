@@ -6,14 +6,14 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 23:35:49 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 00:22:14 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/06/29 00:30:27 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "stack.h"
 #include "libft.h"
 
-static int	pop(t_array *a)
+static int	pop(t_stack *a)
 {
 	int	n;
 
@@ -22,18 +22,18 @@ static int	pop(t_array *a)
 	return (n);
 }
 
-void	push(t_array *a, int n)
+void	push(t_stack *a, int n)
 {
 	a->data[a->size++] = n;
 }
 
-void	push_a(t_array *a, t_array *b)
+void	push_a(t_stack *a, t_stack *b)
 {
 	push(a, pop(b));
 	ft_putstr_fd("pa\n", 1);
 }
 
-void	push_b(t_array *b, t_array *a)
+void	push_b(t_stack *b, t_stack *a)
 {
 	push(b, pop(a));
 	ft_putstr_fd("pb\n", 1);

@@ -6,14 +6,14 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 00:07:59 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 00:26:42 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/06/29 00:30:27 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "array.h"
+#include "stack.h"
 #include "libft.h"
 
-static void	rev_rotate(t_array *a)
+static void	rev_rotate(t_stack *a)
 {
 	size_t	i;
 	int		tmp;
@@ -30,19 +30,19 @@ static void	rev_rotate(t_array *a)
 	a->data[a->size - 1] = tmp;
 }
 
-void	rev_rotate_a(t_array *a)
+void	rev_rotate_a(t_stack *a)
 {
 	rev_rotate(a);
 	ft_putstr_fd("rra\n", 1);
 }
 
-void	rev_rotate_b(t_array *b)
+void	rev_rotate_b(t_stack *b)
 {
 	rev_rotate(b);
 	ft_putstr_fd("rrb\n", 1);
 }
 
-void	rev_rotate_ab(t_array *a, t_array *b)
+void	rev_rotate_ab(t_stack *a, t_stack *b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
