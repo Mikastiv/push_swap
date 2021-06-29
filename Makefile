@@ -13,7 +13,7 @@ OBJS		= $(SRCS:.c=.o)
 HEADERS		= $(addprefix $(INC)/, $(HFILES))
 
 CC			= clang
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -g
 RM			= rm -rf
 
 %.o:		%.c
