@@ -6,8 +6,8 @@ MAKELIBFT	= $(MAKE) -C $(LIBFTDIR)
 
 SRC			= src
 INC			= include
-CFILES		= main.c stack.c swap.c push.c rotate.c rev_rotate.c
-HFILES		= stack.h
+CFILES		= main.c stack.c swap.c push.c rotate.c rev_rotate.c parse.c
+HFILES		= stack.h parse.h
 SRCS		= $(addprefix $(SRC)/, $(CFILES))
 OBJS		= $(SRCS:.c=.o)
 HEADERS		= $(addprefix $(INC)/, $(HFILES))
