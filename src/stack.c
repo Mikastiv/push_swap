@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:48:35 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 00:30:27 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:07:56 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,22 @@ void	print_stack(t_stack *stack)
 		ft_putnbr_fd(stack->data[--i], 1);
 		ft_putchar_fd('\n', 1);
 	}
+}
+
+bool	is_sorted(t_stack *stack)
+{
+	size_t	i;
+	int		prev;
+
+	if (stack->size < 2)
+		return (true);
+	i = 1;
+	prev = stack->data[0];
+	while (i < stack->size)
+	{
+		if (stack->data[i] > prev)
+			return (false);
+		prev = stack->data[i++];
+	}
+	return (true);
 }

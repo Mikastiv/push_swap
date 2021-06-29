@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 	print_stack(a);
 	ft_putstr_fd("b:\n", 1);
 	print_stack(b);
+	ft_putnbr_fd(is_sorted(a), 1);
 	delete_stack(a);
 	delete_stack(b);
 }
