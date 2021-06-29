@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:48:35 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 19:07:56 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/06/29 19:11:20 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_stack	*new_stack(size_t size)
 
 void	delete_stack(t_stack *stack)
 {
-	ft_free(stack->data);
+	if (stack)
+		ft_free(stack->data);
 	ft_free(stack);
 }
 

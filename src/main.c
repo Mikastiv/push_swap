@@ -1,6 +1,14 @@
 #include "libft.h"
 #include "stack.h"
 #include "parse.h"
+#include <stdlib.h>
+
+void	clean_and_exit(t_stack *a, t_stack *b)
+{
+	delete_stack(a);
+	delete_stack(b);
+	exit(0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -11,12 +19,9 @@ int	main(int argc, char **argv)
 		return (0);
 	a = new_stack(argc - 1);
 	b = new_stack(argc - 1);
-	parse_args(argc, argv, a);
-	ft_putstr_fd("a:\n", 1);
-	print_stack(a);
-	ft_putstr_fd("b:\n", 1);
-	print_stack(b);
-	ft_putnbr_fd(is_sorted(a), 1);
-	delete_stack(a);
-	delete_stack(b);
+	if (!a || !b)
+		clean_and_exit(a, b);
+	if (!parse_args(argc, argv, a))
+		clean_and_exit(a, b);
+	clean_and_exit(a, b);
 }
