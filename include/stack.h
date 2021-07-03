@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 19:05:56 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/03 14:45:33 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);
 void	swap_ab(t_stack *a, t_stack *b);
 
-void	push(t_stack *a, int n);
+void	push(t_stack *s, int n);
 void	push_a(t_stack *a, t_stack *b);
 void	push_b(t_stack *b, t_stack *a);
 
@@ -42,5 +42,7 @@ void	rotate_ab(t_stack *a, t_stack *b);
 void	rev_rotate_a(t_stack *a);
 void	rev_rotate_b(t_stack *b);
 void	rev_rotate_ab(t_stack *a, t_stack *b);
+
+void	quicksort(t_stack *s);
 
 #endif
