@@ -6,21 +6,21 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:48:35 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 19:11:20 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/03 15:00:10 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "libft.h"
 
-t_stack	*new_stack(size_t size)
+t_stack	*new_stack(int size)
 {
 	t_stack	*arr;
 
 	arr = ft_calloc(1, sizeof(t_stack));
 	if (!arr)
 		return (NULL);
-	arr->data = ft_calloc(size, sizeof(int));
+	arr->data = ft_calloc((size_t)size, sizeof(int));
 	if (!arr->data)
 		return (ft_free(arr));
 	arr->size = 0;
@@ -36,7 +36,7 @@ void	delete_stack(t_stack *stack)
 
 void	print_stack(t_stack *stack)
 {
-	size_t	i;
+	int	i;
 
 	i = stack->size;
 	while (i > 0)
@@ -48,8 +48,8 @@ void	print_stack(t_stack *stack)
 
 bool	is_sorted(t_stack *stack)
 {
-	size_t	i;
-	int		prev;
+	int	i;
+	int	prev;
 
 	if (stack->size < 2)
 		return (true);
@@ -62,4 +62,17 @@ bool	is_sorted(t_stack *stack)
 		prev = stack->data[i++];
 	}
 	return (true);
+}
+
+void	copy_stack(t_stack *dst, t_stack *src)
+{
+	int	i;
+
+	i = 0;
+	while (i < src->size)
+	{
+		dst->data[i] = src->data[i];
+		++i;
+	}
+	dst->size = src->size;
 }

@@ -6,26 +6,26 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/03 14:45:33 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/03 14:58:05 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STACK_H
 # define STACK_H
 
-# include <stddef.h>
 # include <stdbool.h>
 
 typedef struct s_stack
 {
-	int		*data;
-	size_t	size;
+	int	*data;
+	int	size;
 }	t_stack;
 
-t_stack	*new_stack(size_t size);
+t_stack	*new_stack(int size);
 void	delete_stack(t_stack *stack);
 void	print_stack(t_stack *stack);
 bool	is_sorted(t_stack *stack);
+void	copy_stack(t_stack *dst, t_stack *src);
 
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);

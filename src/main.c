@@ -26,11 +26,7 @@ int	main(int argc, char **argv)
 		clean_and_exit(a, b, c);
 	if (!parse_args(argc, argv, a))
 		clean_and_exit(a, b, c);
-	push(c, 4);
-	push(c, 9);
-	push(c, 0);
-	push(c, 10);
-	push(c, -3);
+	copy_stack(c, a);
 	quicksort(c);
 	print_stack(c);
 	clean_and_exit(a, b, c);

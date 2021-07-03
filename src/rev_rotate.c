@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 00:07:59 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 00:30:27 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/03 14:59:50 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static void	rev_rotate(t_stack *a)
 {
-	size_t	i;
-	int		tmp;
+	int	i;
+	int	tmp;
 
 	if (a->size < 2)
 		return ;

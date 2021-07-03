@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 13:53:33 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/03 14:59:38 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ bool	add_elem(t_stack *s, t_list **lst, char *num)
 bool	parse_args(int argc, char **argv, t_stack *a)
 {
 	t_list	*lst;
-	size_t	i;
+	int		i;
 
 	lst = NULL;
 	i = 1;
-	while ((int)i < argc)
+	while (i < argc)
 	{
 		if (!add_elem(a, &lst, argv[i]))
 		{
