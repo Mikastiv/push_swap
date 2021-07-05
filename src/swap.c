@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 23:00:36 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/06/29 00:30:27 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/04 23:33:02 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static void	swap(t_stack *arr)
 void	swap_a(t_stack *a)
 {
 	swap(a);
-	ft_putstr_fd("sa\n", 1);
+	ft_putendl_fd("sa", 1);
 }
 
 void	swap_b(t_stack *b)
 {
 	swap(b);
-	ft_putstr_fd("sb\n", 1);
+	ft_putendl_fd("sb", 1);
 }
 
 void	swap_ab(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss\n", 1);
+	ft_putendl_fd("ss", 1);
 }

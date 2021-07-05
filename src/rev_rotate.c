@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 00:07:59 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/03 14:59:50 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/04 23:32:28 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ static void	rev_rotate(t_stack *a)
 void	rev_rotate_a(t_stack *a)
 {
 	rev_rotate(a);
-	ft_putstr_fd("rra\n", 1);
+	ft_putendl_fd("rra", 1);
 }
 
 void	rev_rotate_b(t_stack *b)
 {
 	rev_rotate(b);
-	ft_putstr_fd("rrb\n", 1);
+	ft_putendl_fd("rrb", 1);
 }
 
 void	rev_rotate_ab(t_stack *a, t_stack *b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
-	ft_putstr_fd("rrr\n", 1);
+	ft_putendl_fd("rrr", 1);
 }
