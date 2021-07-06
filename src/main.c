@@ -1,33 +1,31 @@
 #include "libft.h"
-#include "stack.h"
+#include "pswap.h"
 #include "parse.h"
 #include <stdlib.h>
 
-void	clean_and_exit(t_stack *a, t_stack *b, t_stack *c)
+void	clean_and_exit(t_pswap *stacks)
 {
-	delete_stack(a);
-	delete_stack(b);
-	delete_stack(c);
+	delete_stack(stacks->a);
+	delete_stack(stacks->b);
+	delete_stack(stacks->c);
 	exit(0);
 }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*c;
+	t_pswap	stacks;
 
 	if (argc < 2)
 		return (0);
-	a = new_stack(argc - 1);
-	b = new_stack(argc - 1);
-	c = new_stack(argc - 1);
-	if (!a || !b || !c)
-		clean_and_exit(a, b, c);
-	if (!parse_args(argc, argv, a))
-		clean_and_exit(a, b, c);
-	copy_stack(c, a);
-	quicksort(c);
-	sort_big(a, b, c);
-	clean_and_exit(a, b, c);
+	stacks.a = new_stack(argc - 1);
+	stacks.b = new_stack(argc - 1);
+	stacks.c = new_stack(argc - 1);
+	if (!stacks.a || !stacks.b || !stacks.c)
+		clean_and_exit(&stacks);
+	if (!parse_args(argc, argv, stacks.a))
+		clean_and_exit(&stacks);
+	copy_stack(stacks.c, stacks.a);
+	quicksort(stacks.c);
+	sort_big(&stacks);
+	clean_and_exit(&stacks);
 }
