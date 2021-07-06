@@ -1,61 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack2.c                                           :+:      :+:    :+:   */
+/*   stack3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/04 20:24:45 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 20:33:05 by mleblanc         ###   ########.fr       */
+/*   Created: 2021/07/05 20:19:23 by mleblanc          #+#    #+#             */
+/*   Updated: 2021/07/05 21:01:38 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	find_number(t_stack *stack, int n)
+bool	is_sorted_rev(t_stack *stack)
 {
 	int	i;
+	int	prev;
 
-	i = 0;
+	if (stack->size < 2)
+		return (true);
+	i = 1;
+	prev = stack->data[0];
 	while (i < stack->size)
 	{
-		if (stack->data[i] == n)
-			return (i);
-		++i;
+		if (stack->data[i] < prev)
+			return (false);
+		prev = stack->data[i++];
 	}
-	return (-1);
+	return (true);
 }
 
-int	front(t_stack *s)
-{
-	return (s->data[s->size - 1]);
-}
-
-int	back(t_stack *s)
-{
-	return (s->data[0]);
-}
-
-bool	contains_smaller(t_stack *s, int max)
+bool	contains_bigger(t_stack *s, int min)
 {
 	int	i;
 
 	i = 0;
 	while (i < s->size)
 	{
-		if (s->data[i] <= max)
+		if (s->data[i] > min)
 			return (true);
 		++i;
 	}
 	return (false);
 }
 
-void	split_a_lower(t_stack *a, t_stack *b, int mid)
+void	split_b_higher(t_stack *b, t_stack *a, int mid)
 {
-	while (contains_smaller(a, mid))
+	while (contains_bigger(b, mid))
 	{
-		while (front(a) > mid)
-			rotate_a(a);
-		push_b(b, a);
+		while (front(b) <= mid)
+			rotate_b(b);
+		push_a(a, b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/03 14:59:38 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/05 21:24:23 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ bool	add_elem(t_stack *s, t_list **lst, char *num)
 		return (false);
 	}
 	ft_lstadd_front(lst, tmp);
-	push(s, *n);
+	push_back(s, *n);
 	return (true);
 }
 

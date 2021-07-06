@@ -16,6 +16,8 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	*c;
+	int		mid;
+	int		i;
 
 	if (argc < 2)
 		return (0);
@@ -28,6 +30,14 @@ int	main(int argc, char **argv)
 		clean_and_exit(a, b, c);
 	copy_stack(c, a);
 	quicksort(c);
-	print_stack(c);
+	i = c->size / 2;
+	mid = c->data[i];
+	split_a_lower(a, b, mid);
+	i += (c->size - i) / 2;
+	mid = c->data[i];
+	split_b_higher(b, a, mid);
+	i += (c->size - i) / 2;
+	mid = c->data[i];
+	split_b_higher(b, a, mid);
 	clean_and_exit(a, b, c);
 }

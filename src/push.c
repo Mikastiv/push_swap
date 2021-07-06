@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 23:35:49 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/04 23:31:49 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/05 21:33:43 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,20 @@ static int	pop(t_stack *a)
 void	push(t_stack *s, int n)
 {
 	s->data[s->size++] = n;
+}
+
+void	push_back(t_stack *s, int n)
+{
+	int	i;
+
+	i = s->size;
+	while (i >= 0)
+	{
+		s->data[i] = s->data[i - 1];
+		--i;
+	}
+	s->data[0] = n;
+	++s->size;
 }
 
 void	push_a(t_stack *a, t_stack *b)
