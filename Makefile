@@ -8,8 +8,8 @@ SRC			= src
 INC			= include
 OBJ			= obj
 CFILES		= main.c stack.c swap.c push.c rotate.c rev_rotate.c parse.c quicksort.c\
-			stack2.c stack3.c
-HFILES		= stack.h parse.h
+			stack2.c stack3.c sort.c split.c
+HFILES		= stack.h parse.h sort.h
 OFILES		= $(CFILES:.c=.o)
 SRCS		= $(addprefix $(SRC)/, $(CFILES))
 OBJS		= $(addprefix $(OBJ)/, $(OFILES))

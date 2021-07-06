@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 21:35:08 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/05 22:48:35 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ bool	contains_smaller(t_stack *s, int max);
 bool	contains_bigger(t_stack *s, int min);
 void	split_a_lower(t_stack *a, t_stack *b, int mid);
 void	split_b_higher(t_stack *b, t_stack *a, int mid);
-void	sort_b_3(t_stack *b);
+void	sort_big(t_stack *a, t_stack *b, t_stack *c);
 
 #endif

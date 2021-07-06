@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 20:24:45 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 20:33:05 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/05 22:51:34 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,4 @@ bool	contains_smaller(t_stack *s, int max)
 		++i;
 	}
 	return (false);
-}
-
-void	split_a_lower(t_stack *a, t_stack *b, int mid)
-{
-	while (contains_smaller(a, mid))
-	{
-		while (front(a) > mid)
-			rotate_a(a);
-		push_b(b, a);
-	}
 }

@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack3.c                                           :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/05 20:19:23 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 22:51:43 by mleblanc         ###   ########.fr       */
+/*   Created: 2021/07/05 22:50:02 by mleblanc          #+#    #+#             */
+/*   Updated: 2021/07/05 22:51:29 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-bool	is_sorted_rev(t_stack *stack)
+void	split_a_lower(t_stack *a, t_stack *b, int mid)
 {
-	int	i;
-	int	prev;
-
-	if (stack->size < 2)
-		return (true);
-	i = 1;
-	prev = stack->data[0];
-	while (i < stack->size)
+	while (contains_smaller(a, mid))
 	{
-		if (stack->data[i] < prev)
-			return (false);
-		prev = stack->data[i++];
+		while (front(a) > mid)
+			rotate_a(a);
+		push_b(b, a);
 	}
-	return (true);
 }
 
-bool	contains_bigger(t_stack *s, int min)
+void	split_b_higher(t_stack *b, t_stack *a, int mid)
 {
-	int	i;
-
-	i = 0;
-	while (i < s->size)
+	while (contains_bigger(b, mid))
 	{
-		if (s->data[i] > min)
-			return (true);
-		++i;
+		while (front(b) <= mid)
+			rotate_b(b);
+		push_a(a, b);
 	}
-	return (false);
 }
