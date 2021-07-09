@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 21:24:23 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/09 14:06:14 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ bool	parse_args(int argc, char **argv, t_stack *a)
 		if (!add_elem(a, &lst, argv[i]))
 		{
 			ft_lstclear(&lst, free);
+			ft_putendl_fd("Error", 2);
 			return (false);
 		}
 		++i;

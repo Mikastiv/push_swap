@@ -1,2 +1,2 @@
 8 3 0 4 34 62 47 11 23 65 12 17 94
-python3 pyviz.py `ruby -e "puts (-200..300).to_a.shuffle.join(' ')"`
+python3 pyviz.py `ruby -e "puts (0..100).to_a.shuffle.join(' ')"`
