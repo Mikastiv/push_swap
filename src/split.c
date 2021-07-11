@@ -3,36 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 22:50:02 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/07 18:45:14 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/11 18:15:53 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pswap.h"
 
-void	split_a_lower(t_pswap *stacks, int mid)
+void	split_a_lower(t_pswap *s, int mid)
 {
-	while (contains_smaller(stacks->a, mid))
+	while (contains_smaller(s->a, mid))
 	{
-		while (front(stacks->a) > mid)
-			rotate_a(stacks->a);
-		push_b(stacks->b, stacks->a);
+		while (front(s->a) > mid)
+			rotate_a(s->a);
+		push_b(s->b, s->a);
 	}
 }
 
-int	split_b_higher(t_pswap *stacks, int mid)
+static bool	front_b_is_next(t_pswap *s)
 {
-	int	push_count;
+	return (front(s->b) == 0 || front(s->b) == back(s->a) + 1);
+}
 
-	push_count = 0;
-	while (contains_bigger(stacks->b, mid))
+static void	max_to_front(t_pswap *s)
+{
+	int	i;
+	int	max;
+
+	max = stack_max(s->b);
+	if (front(s->b) == max)
 	{
-		while (front(stacks->b) <= mid)
-			rotate_b(stacks->b);
-		push_a(stacks->a, stacks->b);
-		++push_count;
+		push_a(s->a, s->b);
+		return ;
 	}
-	return (push_count);
+	i = find_number(s->b, max);
+	if (i < s->b->size / 2)
+		rev_rotate_b(s->b);
+	else
+		rotate_b(s->b);
+}
+
+void	split_b_higher(t_pswap *s, int mid)
+{
+	int	count;
+
+	count = s->b->size;
+	while (count-- > 0)
+	{
+		if (front_b_is_next(s))
+		{
+			push_a(s->a, s->b);
+			rotate_a(s->a);
+		}
+		else if (s->b->size < 13)
+			max_to_front(s);
+		else if (mid <= front(s->b))
+			push_a(s->a, s->b);
+		else
+			rotate_b(s->b);
+	}
 }

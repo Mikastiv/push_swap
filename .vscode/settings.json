@@ -12,6 +12,9 @@
 		"algorithm": "c",
 		"bitset": "c",
 		"chrono": "c",
-		"unordered_map": "c"
+		"unordered_map": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"vector": "c"
 	}
 }

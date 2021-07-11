@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 20:19:23 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 22:51:43 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/11 17:56:22 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ bool	is_sorted_rev(t_stack *stack)
 	return (true);
 }
 
-bool	contains_bigger(t_stack *s, int min)
+int	stack_max(t_stack *s)
 {
 	int	i;
+	int	max;
 
-	i = 0;
+	max = back(s);
+	i = 1;
 	while (i < s->size)
 	{
-		if (s->data[i] > min)
-			return (true);
+		if (max < s->data[i])
+			max = s->data[i];
 		++i;
 	}
-	return (false);
+	return (max);
 }

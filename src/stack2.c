@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 20:24:45 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/05 22:51:34 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/11 17:05:31 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ int	find_number(t_stack *stack, int n)
 		++i;
 	}
 	return (-1);
+}
+
+int	average(t_stack *stack)
+{
+	int	i;
+	int	sum;
+
+	i = 0;
+	sum = 0;
+	while (i < stack->size)
+	{
+		sum += stack->data[i];
+		++i;
+	}
+	return ((float)(sum) / (int)(stack->size + 0.5f));
 }
 
 int	front(t_stack *s)

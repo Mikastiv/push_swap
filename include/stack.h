@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/06 18:41:56 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/11 17:41:14 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		back(t_stack *s);
 bool	is_sorted(t_stack *stack);
 bool	is_sorted_rev(t_stack *stack);
 int		find_number(t_stack *stack, int n);
+int		average(t_stack *stack);
+int		stack_max(t_stack *s);
 
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);
