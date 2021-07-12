@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/11 17:41:14 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 14:51:00 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ bool	is_sorted_rev(t_stack *stack);
 int		find_number(t_stack *stack, int n);
 int		average(t_stack *stack);
 int		stack_max(t_stack *s);
+int		stack_min(t_stack *s);
 
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);
@@ -55,6 +56,5 @@ void	rev_rotate_ab(t_stack *a, t_stack *b);
 void	quicksort(t_stack *s);
 
 bool	contains_smaller(t_stack *s, int max);
-bool	contains_bigger(t_stack *s, int min);
 
 #endif

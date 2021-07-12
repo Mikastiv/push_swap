@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:02:46 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/11 16:42:35 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 14:50:58 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,5 @@ typedef struct s_pswap
 void	split_a_lower(t_pswap *s, int mid);
 void	split_b_higher(t_pswap *s, int mid);
 void	sort_big(t_pswap *s);
-void	sort_5_b(t_pswap *s);
-void	sort_5_a(t_pswap *s, int start);
 
 #endif

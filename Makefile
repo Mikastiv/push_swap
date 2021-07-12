@@ -44,4 +44,7 @@ norme:
 			$(MAKELIBFT) norme
 			norminette $(SRCS) $(HEADERS)
 
-.PHONY:		all clean fclean re norme
+visual:		all
+			python3 pyviz.py 24 41 27 48 5 33 32 12 31 30 6 34 9 43 36 26 29 45 22 1 50 17 10 15 14 0 7 37 8 39 35 46 18 20 19 13 38 4 2 42 28 3 11 49 40 16 23 25 47 21 44
+
+.PHONY:		all clean fclean re norme visual

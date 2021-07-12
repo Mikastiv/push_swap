@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 20:19:23 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/11 17:56:22 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 14:51:22 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,20 @@ int	stack_max(t_stack *s)
 		++i;
 	}
 	return (max);
+}
+
+int	stack_min(t_stack *s)
+{
+	int	i;
+	int	min;
+
+	min = back(s);
+	i = 1;
+	while (i < s->size)
+	{
+		if (min > s->data[i])
+			min = s->data[i];
+		++i;
+	}
+	return (min);
 }
