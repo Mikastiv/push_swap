@@ -6,26 +6,26 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 20:19:23 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 14:51:22 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:19:16 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-bool	is_sorted_rev(t_stack *stack)
+bool	is_sorted_rev(t_stack *s)
 {
 	int	i;
 	int	prev;
 
-	if (stack->size < 2)
+	if (s->size < 2)
 		return (true);
 	i = 1;
-	prev = stack->data[0];
-	while (i < stack->size)
+	prev = s->data[0];
+	while (i < s->size)
 	{
-		if (stack->data[i] < prev)
+		if (s->data[i] < prev)
 			return (false);
-		prev = stack->data[i++];
+		prev = s->data[i++];
 	}
 	return (true);
 }

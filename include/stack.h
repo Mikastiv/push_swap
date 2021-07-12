@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 14:51:00 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:18:18 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack	*new_stack(int size);
-void	delete_stack(t_stack *stack);
+void	delete_stack(t_stack *s);
 void	copy_stack(t_stack *dst, t_stack *src);
-void	print_stack(t_stack *stack);
+void	print_stack(t_stack *s);
 
 int		front(t_stack *s);
 int		back(t_stack *s);
 
-bool	is_sorted(t_stack *stack);
-bool	is_sorted_rev(t_stack *stack);
-int		find_number(t_stack *stack, int n);
-int		average(t_stack *stack);
+bool	is_sorted(t_stack *s);
+bool	is_sorted_rev(t_stack *s);
+int		find_number(t_stack *s, int n);
+int		average(t_stack *s);
 int		stack_max(t_stack *s);
 int		stack_min(t_stack *s);
 

@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 23:02:46 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 14:50:58 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:30:09 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ typedef struct s_pswap
 }	t_pswap;
 
 void	split_a_lower(t_pswap *s, int mid);
+void	split_a_top(t_pswap *s, int max);
 void	split_b_higher(t_pswap *s, int mid);
 void	sort_big(t_pswap *s);
+void	sort_b_recurse(t_pswap *s);
+bool	should_sort_b(t_pswap *s);
+int		average_a_top(t_pswap *s, int max);
 
 #endif

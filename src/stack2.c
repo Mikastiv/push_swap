@@ -6,39 +6,39 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 20:24:45 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/11 17:05:31 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:19:06 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int	find_number(t_stack *stack, int n)
+int	find_number(t_stack *s, int n)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->size)
+	while (i < s->size)
 	{
-		if (stack->data[i] == n)
+		if (s->data[i] == n)
 			return (i);
 		++i;
 	}
 	return (-1);
 }
 
-int	average(t_stack *stack)
+int	average(t_stack *s)
 {
 	int	i;
 	int	sum;
 
 	i = 0;
 	sum = 0;
-	while (i < stack->size)
+	while (i < s->size)
 	{
-		sum += stack->data[i];
+		sum += s->data[i];
 		++i;
 	}
-	return ((float)(sum) / (int)(stack->size + 0.5f));
+	return ((float)(sum) / (int)(s->size + 0.5f));
 }
 
 int	front(t_stack *s)

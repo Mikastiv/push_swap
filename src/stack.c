@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:48:35 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/03 15:00:10 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/12 17:29:13 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,39 +27,39 @@ t_stack	*new_stack(int size)
 	return (arr);
 }
 
-void	delete_stack(t_stack *stack)
+void	delete_stack(t_stack *s)
 {
-	if (stack)
-		ft_free(stack->data);
-	ft_free(stack);
+	if (s)
+		ft_free(s->data);
+	ft_free(s);
 }
 
-void	print_stack(t_stack *stack)
+void	print_stack(t_stack *s)
 {
 	int	i;
 
-	i = stack->size;
+	i = s->size;
 	while (i > 0)
 	{
-		ft_putnbr_fd(stack->data[--i], 1);
+		ft_putnbr_fd(s->data[--i], 1);
 		ft_putchar_fd('\n', 1);
 	}
 }
 
-bool	is_sorted(t_stack *stack)
+bool	is_sorted(t_stack *s)
 {
 	int	i;
 	int	prev;
 
-	if (stack->size < 2)
+	if (s->size < 2)
 		return (true);
 	i = 1;
-	prev = stack->data[0];
-	while (i < stack->size)
+	prev = s->data[0];
+	while (i < s->size)
 	{
-		if (stack->data[i] > prev)
+		if (s->data[i] > prev)
 			return (false);
-		prev = stack->data[i++];
+		prev = s->data[i++];
 	}
 	return (true);
 }
