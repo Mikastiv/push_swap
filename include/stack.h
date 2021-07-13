@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:30:41 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 17:18:18 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:15:35 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int		find_number(t_stack *s, int n);
 int		average(t_stack *s);
 int		stack_max(t_stack *s);
 int		stack_min(t_stack *s);
+int		stack_size(t_stack *s, int max);
 
 void	swap_a(t_stack *a);
 void	swap_b(t_stack *b);

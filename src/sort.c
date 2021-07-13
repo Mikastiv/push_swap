@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 22:49:09 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 17:45:26 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:44:36 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	should_sort_b(t_pswap *s)
 
 static void	push_a_top(t_pswap *s, int max)
 {
-	while (front(s->a) <= max)
+	while (front(s->a) <= max && front(s->a) != 0)
 	{
 		if (front_a_is_next(s))
 			rotate_a(s->a);
@@ -44,23 +44,28 @@ void	sort_b_recurse(t_pswap *s)
 		return ;
 	b_max = stack_max(s->b);
 	split_b_higher(s, average(s->b));
-	while (front_a_is_next(s))
+	while (front_a_is_next(s) && !is_sorted(s->a))
 		rotate_a(s->a);
 	sort_b_recurse(s);
+	if (stack_size(s->a, b_max) >= 20)
+		split_a_top(s, b_max);
 	push_a_top(s, b_max);
 }
 
 void	sort_big(t_pswap *s)
 {
 	int	mid;
+	
 
 	if (is_sorted(s->a))
 		return ;
 	mid = average(s->a);
 	split_a_lower(s, mid);
 	sort_b_recurse(s);
-	split_a_top(s, stack_max(s->a));
-	split_a_top(s, stack_max(s->a));
-	split_a_top(s, stack_max(s->a));
-	split_a_top(s, stack_max(s->a));
+	if (stack_size(s->a, stack_max(s->a)) >= 20)
+	{
+		split_a_top(s, stack_max(s->a));
+		split_a_top(s, stack_max(s->a));
+	}
+	push_a_top(s, stack_max(s->a));
 }

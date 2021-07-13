@@ -19,5 +19,17 @@
 			"externalConsole": false,
 			"MIMode": "lldb"
 		},
+		{
+			"name": "(lldb) Lancer 2",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/push_swap",
+			"args": ["1 3 6 2 7"],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "lldb"
+		},
 	]
 }
