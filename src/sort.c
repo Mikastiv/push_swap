@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 22:49:09 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/13 15:44:36 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:20:34 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static bool	front_a_is_next(t_pswap *s)
 	return (front(s->a) == 0 || front(s->a) == back(s->a) + 1);
 }
 
-bool	should_sort_b(t_pswap *s)
+static bool	should_sort_b(t_pswap *s)
 {
 	return (stack_min(s->b) == back(s->a) + 1);
 }
@@ -33,10 +33,10 @@ static void	push_a_top(t_pswap *s, int max)
 			push_b(s->b, s->a);
 	}
 	if (should_sort_b(s))
-		sort_b_recurse(s);
+		sort_b(s);
 }
 
-void	sort_b_recurse(t_pswap *s)
+void	sort_b(t_pswap *s)
 {
 	int	b_max;
 
@@ -44,28 +44,20 @@ void	sort_b_recurse(t_pswap *s)
 		return ;
 	b_max = stack_max(s->b);
 	split_b_higher(s, average(s->b));
-	while (front_a_is_next(s) && !is_sorted(s->a))
+	while (front_a_is_next(s) && front(s->a) != 0)
 		rotate_a(s->a);
-	sort_b_recurse(s);
-	if (stack_size(s->a, b_max) >= 20)
-		split_a_top(s, b_max);
+	sort_b(s);
 	push_a_top(s, b_max);
 }
 
 void	sort_big(t_pswap *s)
 {
 	int	mid;
-	
 
 	if (is_sorted(s->a))
 		return ;
 	mid = average(s->a);
 	split_a_lower(s, mid);
-	sort_b_recurse(s);
-	if (stack_size(s->a, stack_max(s->a)) >= 20)
-	{
-		split_a_top(s, stack_max(s->a));
-		split_a_top(s, stack_max(s->a));
-	}
+	sort_b(s);
 	push_a_top(s, stack_max(s->a));
 }

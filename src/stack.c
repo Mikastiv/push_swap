@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 22:48:35 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 17:29:13 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:25:15 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,34 +34,14 @@ void	delete_stack(t_stack *s)
 	ft_free(s);
 }
 
-void	print_stack(t_stack *s)
+int	front(t_stack *s)
 {
-	int	i;
-
-	i = s->size;
-	while (i > 0)
-	{
-		ft_putnbr_fd(s->data[--i], 1);
-		ft_putchar_fd('\n', 1);
-	}
+	return (s->data[s->size - 1]);
 }
 
-bool	is_sorted(t_stack *s)
+int	back(t_stack *s)
 {
-	int	i;
-	int	prev;
-
-	if (s->size < 2)
-		return (true);
-	i = 1;
-	prev = s->data[0];
-	while (i < s->size)
-	{
-		if (s->data[i] > prev)
-			return (false);
-		prev = s->data[i++];
-	}
-	return (true);
+	return (s->data[0]);
 }
 
 void	copy_stack(t_stack *dst, t_stack *src)

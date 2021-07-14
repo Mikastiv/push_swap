@@ -6,21 +6,11 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 22:50:02 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/13 15:36:42 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:22:45 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pswap.h"
-
-void	split_a_lower(t_pswap *s, int mid)
-{
-	while (contains_smaller(s->a, mid))
-	{
-		while (front(s->a) > mid)
-			rotate_a(s->a);
-		push_b(s->b, s->a);
-	}
-}
 
 static bool	front_b_is_next(t_pswap *s)
 {
@@ -45,6 +35,16 @@ static void	max_to_front(t_pswap *s)
 		rotate_b(s->b);
 }
 
+void	split_a_lower(t_pswap *s, int mid)
+{
+	while (contains_smaller(s->a, mid))
+	{
+		while (front(s->a) > mid)
+			rotate_a(s->a);
+		push_b(s->b, s->a);
+	}
+}
+
 void	split_b_higher(t_pswap *s, int mid)
 {
 	int	count;
@@ -64,29 +64,4 @@ void	split_b_higher(t_pswap *s, int mid)
 		else
 			rotate_b(s->b);
 	}
-}
-
-void	split_a_top(t_pswap *s, int max)
-{
-	int	rotations;
-	int	mid;
-	int	i;
-
-	mid = average_a_top(s, max);
-	rotations = 0;
-	while (front(s->a) <= max && front(s->a) != 0)
-	{
-		if (front(s->a) >= mid)
-		{
-			rotate_a(s->a);
-			++rotations;
-		}
-		else
-			push_b(s->b, s->a);
-	}
-	i = rotations;
-	while (rotations--)
-		rev_rotate_a(s->a);
-	if (should_sort_b(s) && i > 0)
-		sort_b_recurse(s);
 }

@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/09 14:06:14 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:19:41 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include <limits.h>
 #include <stdlib.h>
 
-bool	is_not_digit(char c)
+static bool	is_not_digit(char c)
 {
 	return (!ft_isdigit(c));
 }
 
-int	*lst_find(t_list *lst, int n)
+static int	*lst_find(t_list *lst, int n)
 {
 	int	*ptr;
 
@@ -34,7 +34,7 @@ int	*lst_find(t_list *lst, int n)
 	return (NULL);
 }
 
-bool	add_elem(t_stack *s, t_list **lst, char *num)
+static bool	add_elem(t_stack *s, t_list **lst, char *num)
 {
 	t_list	*tmp;
 	long	*n;

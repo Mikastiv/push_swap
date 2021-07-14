@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/04 20:24:45 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/12 17:19:06 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/14 16:25:23 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,22 @@ int	average(t_stack *s)
 	return ((float)(sum) / (int)(s->size + 0.5f));
 }
 
-int	front(t_stack *s)
+bool	is_sorted(t_stack *s)
 {
-	return (s->data[s->size - 1]);
-}
+	int	i;
+	int	prev;
 
-int	back(t_stack *s)
-{
-	return (s->data[0]);
+	if (s->size < 2)
+		return (true);
+	i = 1;
+	prev = s->data[0];
+	while (i < s->size)
+	{
+		if (s->data[i] > prev)
+			return (false);
+		prev = s->data[i++];
+	}
+	return (true);
 }
 
 bool	contains_smaller(t_stack *s, int max)
