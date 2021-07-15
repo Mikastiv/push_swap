@@ -6,12 +6,13 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/14 16:19:41 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:18:06 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "stack.h"
+#include "parse.h"
 #include <limits.h>
 #include <stdlib.h>
 
@@ -62,6 +63,33 @@ static bool	add_elem(t_stack *s, t_list **lst, char *num)
 	return (true);
 }
 
+bool	parse_split(char *arg, t_stack *a)
+{
+	t_list	*lst;
+	char	**nums;
+	int		i;
+
+	lst = NULL;
+	nums = ft_split(arg, ' ');
+	if (!nums)
+		return (false);
+	i = 0;
+	while (nums[i])
+	{
+		if (!add_elem(a, &lst, nums[i]))
+		{
+			ft_lstclear(&lst, free);
+			ft_putendl_fd("Error", 2);
+			free_table(nums);
+			return (false);
+		}
+		++i;
+	}
+	free_table(nums);
+	ft_lstclear(&lst, free);
+	return (true);
+}
+
 bool	parse_args(int argc, char **argv, t_stack *a)
 {
 	t_list	*lst;
@@ -69,6 +97,8 @@ bool	parse_args(int argc, char **argv, t_stack *a)
 
 	lst = NULL;
 	i = 1;
+	if (argc == 2)
+		return (parse_split(argv[1], a));
 	while (i < argc)
 	{
 		if (!add_elem(a, &lst, argv[i]))

@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   parse2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 13:53:58 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/15 14:05:39 by mleblanc         ###   ########.fr       */
+/*   Created: 2021/07/15 14:05:52 by mleblanc          #+#    #+#             */
+/*   Updated: 2021/07/15 14:06:57 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#include "parse.h"
+#include <stdlib.h>
 
-# include "stack.h"
+void	free_table(char **table)
+{
+	int	i;
 
-bool	parse_args(int argc, char **argv, t_stack *a);
-void	free_table(char **table);
-
-#endif
+	i = 0;
+	while (table[i])
+		free(table[i++]);
+	free(table);
+}
