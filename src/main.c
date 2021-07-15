@@ -52,9 +52,9 @@ int	main(int argc, char **argv)
 	int		size;
 
 	if (argc < 2)
-		quit_error();
+		return (0);
 	size = stack_size(argc, argv);
-	if (size < 1)
+	if (size < 0)
 		quit_error();
 	stacks.a = new_stack(size);
 	stacks.b = new_stack(size);

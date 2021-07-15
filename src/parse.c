@@ -6,7 +6,7 @@
 /*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/15 14:18:06 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:21:25 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static bool	add_elem(t_stack *s, t_list **lst, char *num)
 	return (true);
 }
 
-bool	parse_split(char *arg, t_stack *a)
+static bool	parse_split(char *arg, t_stack *a)
 {
 	t_list	*lst;
 	char	**nums;
