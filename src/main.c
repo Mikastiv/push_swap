@@ -66,6 +66,9 @@ int	main(int argc, char **argv)
 	copy_stack(stacks.c, stacks.a);
 	quicksort(stacks.c);
 	rank(stacks.a, stacks.c);
-	sort_big(&stacks);
+	if (size < 6)
+		sort_small(&stacks);
+	else
+		sort_big(&stacks);
 	clean_and_exit(&stacks);
 }
