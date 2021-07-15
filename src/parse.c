@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mleblanc <mleblanc@student.42quebec>       +#+  +:+       +#+        */
+/*   By: mleblanc <mleblanc@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 13:52:33 by mleblanc          #+#    #+#             */
-/*   Updated: 2021/07/15 14:21:25 by mleblanc         ###   ########.fr       */
+/*   Updated: 2021/07/15 15:37:57 by mleblanc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ static bool	parse_split(char *arg, t_stack *a)
 		if (!add_elem(a, &lst, nums[i]))
 		{
 			ft_lstclear(&lst, free);
-			ft_putendl_fd("Error", 2);
 			free_table(nums);
+			ft_putendl_fd("Error", 2);
 			return (false);
 		}
 		++i;

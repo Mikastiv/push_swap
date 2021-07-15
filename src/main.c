@@ -30,7 +30,7 @@ int	stack_size(int argc, char **argv)
 
 	size = 0;
 	if (argc > 2)
-		return (argc);
+		return (argc - 1);
 	args = ft_split(argv[1], ' ');
 	if (!args)
 		return (-1);
