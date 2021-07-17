@@ -16,7 +16,7 @@ OBJS		= $(addprefix $(OBJ)/, $(OFILES))
 HEADERS		= $(addprefix $(INC)/, $(HFILES))
 
 CC			= clang
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 $(OBJ)/%.o:	$(SRC)/%.c
@@ -44,4 +44,4 @@ norme:
 			$(MAKELIBFT) norme
 			norminette $(SRCS) $(HEADERS)
 
-.PHONY:		all clean fclean re norme visual
+.PHONY:		all clean fclean re norme
